@@ -1,0 +1,74 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>visualizarservico</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <ion-card>
+    <img src="assets/imgs/map.jpg">
+    <ion-fab right top>
+      <button ion-fab>
+        <ion-icon name="pin"></ion-icon>
+      </button>
+    </ion-fab>
+
+    <ion-item>
+      <ion-icon name="person" color="default" item-start large></ion-icon>
+      <h2>Usuário</h2>
+      <p>fulano de tal</p>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="briefcase" color="default" item-start large></ion-icon>
+      <h2>Serviço</h2>
+      <p>Marceneiro</p>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="pin" color="default" item-start large></ion-icon>
+      <h2>Localização</h2>
+      <p>Rua das madeiras, vitoria - Espirito santo</p>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="star" color="default" item-start large></ion-icon>
+      <h2>Estrelas</h2>
+      <ion-icon color="gold" name="star-half"></ion-icon>
+    </ion-item>
+    <hr/>
+    <ion-card-content>
+      <p>“O profissional marceneiro poderá contar com uma atuação bastante ampla, com mercado crescente e bem definido”, afirma
+        o professor Wilhelmus Deutsch, do curso Profissionalizante de Marceneiro, elaborado pelo CPT - Centro de Produções
+        Técnicas.
+      </p>
+    </ion-card-content>
+    <ion-row no-padding style="margin: 0 auto;">
+      <ion-col>
+        <button (click)="estrela=!estrela" ion-button class="btnacao" clear>
+          <ion-icon *ngIf="!estrela" name="star-outline" color="default"></ion-icon>
+          <ion-icon *ngIf="estrela" name="star" color="gold"></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col>
+        <button (click)="mail=!mail" ion-button class="btnacao" clear>
+          <ion-icon name="mail" color="default"></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col>
+        <button (click)="aceitarProposta()" ion-button class="btnacao" clear color="default">
+          <ion-icon *ngIf="!check" name="checkmark-circle" color="default"></ion-icon>
+          <ion-icon *ngIf="check" name="checkmark-circle" color="secondary"></ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
+    <ion-row style="border: 1px solid #c8c7cc;padding-bottom: 10px;" *ngIf="mail">
+      <ion-item>
+        <ion-textarea style="border-right: 1px solid #c1c1c1;" placeholder="Insira seu comentário.." #textAreaid id="textAreaid"
+          rows="1" (keyup)="resize()"></ion-textarea>
+        <button (click)="mail=!mail" ion-button style="font-size: 2.3rem;" clear color="default" item-right>
+          <ion-icon name="send"></ion-icon>
+        </button>
+      </ion-item>
+    </ion-row>
+  </ion-card>
+</ion-content>
